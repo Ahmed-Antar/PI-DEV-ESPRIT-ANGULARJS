@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/owl.carousel/assets/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/colorbox/example1/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/timeline-style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/superlist.css" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">-->
+    <!--<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">-->
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="assets/css/nestedList.css">-->
+
+    <link rel="stylesheet" href="app.css">
+
+    <!--Ibrahims's External Style-->
+    <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <!--<link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.min.css">-->
+
+
+    <!--Hakim Css-->
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
+
+    <!--End Hakim CSS-->
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
+
+    <style>
+        .ng-cloak {
+            display: none;
+        }
+    </style>
+
+    <title>Eventify</title>
+</head>
+
+
+<body class="" ng-app="EventifyApp">
+<div class="page-wrapper">
+    <header ng-show="currentUser==null" class="header ng-cloak">
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="header-logo">
+                        <a ui-sref="home">
+                            <img width="80" height="90" src="assets/img/logo.png" alt="Logo">
+                        </a>
+                    </div>
+                    <!-- /.header-logo -->
+                    <div class="header-content">
+
+
+
+                        <div class="header-top">
+                            <div class="header-search">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                            </div>
+                            <!-- /.header-search -->
+                            <ul class="header-nav-social social-links nav nav-pills">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                            <!-- /.header-nav-social -->
+                            <ul class="header-nav-secondary nav nav-pills">
+                                <li><a ui-sref="loginUser">Login</a></li>
+                                <li><a ui-sref="registerUser">Register</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.header-top -->
+                        <div class="header-bottom">
+                            <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+                                <li class="active">
+                                    <a href="#">Home <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Video v1</a></li>
+                                        <li><a href="#">Video v2</a></li>
+                                        <li><a href="#">Google Map V1</a></li>
+                                        <li><a href="#">Google Map v2</a></li>
+                                        <li><a href="#">Image v1</a></li>
+                                        <li><a href="#">Image v2</a></li>
+                                        <li><a href="#">Boxed Slider</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Listing <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Detail</a></li>
+                                        <li><a href="#">Row + Map</a></li>
+                                        <li><a href="#">Grid</a></li>
+                                        <li><a href="#">Grid Sidebar</a></li>
+                                        <li><a href="#">Row</a></li>
+                                        <li><a href="#">Row Sidebar</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-mega-menu ">
+                                    <a href="#">Pages <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="mega-menu">
+                                        <li>
+                                            <a href="#">General</a>
+
+                                            <ul>
+                                                <li><a href="#">FAQ</a></li>
+                                                <li><a href="#">Invoice</a></li>
+                                                <li><a href="#">Pricing</a></li>
+                                                <li><a href="#">Grid System</a></li>
+                                                <li><a href="#">Testimonials</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">User Account</a>
+
+                                            <ul>
+                                                <li><a href="#">Profile Edit</a></li>
+                                                <li><a href="#">Login Form</a></li>
+                                                <li><a href="#">Register Form</a></li>
+                                                <li><a href="#">Change Password Form</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">Miscellaneous</a>
+
+                                            <ul>
+                                                <li><a href="#">Sticky Footer</a></li>
+                                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                                <li><a href="#">403 - Forbidden</a></li>
+                                                <li><a href="#">404 - Not Found</a></li>
+                                                <li><a href="#">500 - Internal Error</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="hidden-xs">
+                                            <div class="special">
+                                                <a href="#">Sign Up Now</a>
+                                            </div>
+                                            <!-- /.special-->
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">Blog <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Standard Right Sidebar</a></li>
+                                        <li><a href="#">Standard Left Sidebar</a></li>
+                                        <li><a href="#">Boxed Style</a></li>
+                                        <li><a href="#">Condensed Style</a></li>
+                                        <li><a href="#">Detail Fullwidth</a></li>
+                                        <li><a href="#">Detail Right Sidebar</a></li>
+                                        <li><a href="blog-detail-left-sidebar.html">Detail Left Sidebar</a></li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">Admin <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="sub-menu">
+                                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                                        <li><a href="admin-grid.html">Grid System</a></li>
+                                        <li><a href="admin-tables.html">Tables</a></li>
+                                        <li><a href="admin-forms.html">Forms</a></li>
+                                        <li><a href="admin-notifications.html">Notifications</a></li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#">Contact <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="contact-1.html">Contact v1</a></li>
+                                        <li><a href="contact-2.html">Contact v2</a></li>
+                                        <li><a href="contact-3.html">Contact v3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                                    data-target=".header-nav-primary">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!-- /.header-bottom -->
+                    </div>
+                    <!-- /.header-content -->
+                </div>
+                <!-- /.header-inner -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.header-wrapper -->
+    </header>
+    <!-- /.header -->
+    <!--DashBoard Header-->
+
+    <header ng-show="currentUser!=null" class="header header-minimal ng-cloak">
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="header-logo">
+                        <!--<a ui-sref="home">-->
+                        <!--<img width="80" height="90" src="assets/img/logo.png" alt="Logo">-->
+
+                        <!--</a>-->
+                    </div>
+                    <!-- /.header-logo -->
+                    <div class="header-content">
+
+                        <div class="header-bottom">
+                            <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+                                <li >
+                                    <a href="#">Home <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="sub-menu">
+                                        <li><a href="index-video.html">Video v1</a></li>
+                                        <li><a href="index-video-transparent-header.html">Video v2</a></li>
+                                        <li><a href="index-google-map.html">Google Map V1</a></li>
+                                        <li><a href="index-google-map-transparent-header.html">Google Map v2</a></li>
+                                        <li><a href="index-image.html">Image v1</a></li>
+                                        <li><a href="index.html">Image v2</a></li>
+                                        <li><a href="index-bootstrap-slider.html">Boxed Slider</a></li>
+                                    </ul>
+                                </li>
+
+                                <li >
+                                    <a href="#">Listing <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="sub-menu">
+                                        <li><a href="listing-detail.html">Detail</a></li>
+                                        <li><a href="listing-map.html">Row + Map</a></li>
+                                        <li><a href="listing-grid.html">Grid</a></li>
+                                        <li><a href="listing-grid-sidebar.html">Grid Sidebar</a></li>
+                                        <li><a href="listing-row.html">Row</a></li>
+                                        <li><a href="listing-row-sidebar.html">Row Sidebar</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-mega-menu ">
+                                    <a href="#">Pages <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="mega-menu">
+                                        <li>
+                                            <a href="#">General</a>
+
+                                            <ul>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                                <li><a href="invoice.html">Invoice</a></li>
+                                                <li><a href="pricing.html">Pricing</a></li>
+                                                <li><a href="grid.html">Grid System</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">User Account</a>
+
+                                            <ul>
+                                                <li><a href="user-profile-edit.html">Profile Edit</a></li>
+                                                <li><a href="login.html">Login Form</a></li>
+                                                <li><a href="register.html">Register Form</a></li>
+                                                <li><a href="change-password.html">Change Password Form</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">Miscellaneous</a>
+
+                                            <ul>
+                                                <li><a href="sticky-footer.html">Sticky Footer</a></li>
+                                                <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                                                <li><a href="error-403.html">403 - Forbidden</a></li>
+                                                <li><a href="error-404.html">404 - Not Found</a></li>
+                                                <li><a href="error-500.html">500 - Internal Error</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="hidden-xs">
+                                            <div class="special">
+                                                <a href="register.html">Sign Up Now</a>
+                                            </div><!-- /.special-->
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li >
+                                    <a href="#">Blog <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="sub-menu">
+                                        <li><a href="blog-standard-right-sidebar.html">Standard Right Sidebar</a></li>
+                                        <li><a href="blog-standard-left-sidebar.html">Standard Left Sidebar</a></li>
+                                        <li><a href="blog-boxed.html">Boxed Style</a></li>
+                                        <li><a href="blog-condensed.html">Condensed Style</a></li>
+                                        <li><a href="blog-detail.html">Detail Fullwidth</a></li>
+                                        <li><a href="blog-detail-right-sidebar.html">Detail Right Sidebar</a></li>
+                                        <li><a href="blog-detail-left-sidebar.html">Detail Left Sidebar</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="active">
+                                    <a href="#">Admin <i class="fa fa-chevron-down"></i></a>
+
+                                    <ul class="sub-menu">
+                                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                                        <li><a href="admin-grid.html">Grid System</a></li>
+                                        <li><a href="admin-tables.html">Tables</a></li>
+                                        <li><a href="admin-forms.html">Forms</a></li>
+                                        <li><a href="admin-notifications.html">Notifications</a></li>
+                                    </ul>
+                                </li>
+
+                                <li >
+                                    <a href="#">Contact <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="contact-1.html">Contact v1</a></li>
+                                        <li><a href="contact-2.html">Contact v2</a></li>
+                                        <li><a href="contact-3.html">Contact v3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav-primary">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+
+                            <div class="header-nav-user">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <div class="user-image">
+                                            <img ng-src="{{currentUser.User.profileImage}}">
+                                            <!--<div class="notification"></div>&lt;!&ndash; /.notification&ndash;&gt;-->
+                                        </div><!-- /.user-image -->
+
+                                        <span class="header-nav-user-name">{{currentUser.User.firstName}} {{currentUser.User.lastName}}</span> <i class="fa fa-chevron-down"></i>
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a ui-sref="editProfileUser">Edit Profile</a></li>
+                                        <li><a ui-sref="changePasswordUser">Change Password</a></li>
+                                        <li><a href="" ng-click="logMeOut()">Log Out
+                                            <i style="float:right;" class="fa fa-sign-out" aria-hidden="true"></i> </a>
+                                        </li>
+                                    </ul>
+                                </div><!-- /.dropdown -->
+                            </div><!-- /.header-nav-user -->
+
+                        </div><!-- /.header-bottom -->
+                    </div><!-- /.header-content -->
+                </div><!-- /.header-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.header-wrapper -->
+    </header><!-- /.header -->
+
+    <!--End of DashBoard Header-->
+
+
+
+
+
+
+    <div class="main">
+        <div class="main-inner">
+            <div class="content">
+
+                <div ui-view></div>
+
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>About Superlist</h2>
+
+                        <p>Superlist is directory template built upon Bootstrap and SASS to bring great experience in
+                            creation of directory.</p>
+                    </div><!-- /.col-* -->
+
+                    <div class="col-sm-4">
+                        <h2>Contact Information</h2>
+
+                        <p>
+                            Your Street 123, Melbourne, Australia<br>
+                            +1-123-456-789, <a href="#">sample@example.com</a>
+                        </p>
+                    </div><!-- /.col-* -->
+
+                    <div class="col-sm-4">
+                        <h2>Stay Connected</h2>
+
+                        <ul class="social-links nav nav-pills">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        </ul><!-- /.header-nav-social -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-top -->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-left">
+                    &copy; 2015 All rights reserved. Created by <a href="#">Aviators</a>.
+                </div><!-- /.footer-bottom-left -->
+
+                <div class="footer-bottom-right">
+                    <ul class="nav nav-pills">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                        <li><a href="contact-1.html">Contact</a></li>
+                    </ul><!-- /.nav -->
+                </div><!-- /.footer-bottom-right -->
+            </div><!-- /.container -->
+        </div>
+    </footer><!-- /.footer -->
+
+</div><!-- /.page-wrapper -->
+
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
+
+<!--<script src="bower_components/jquery/dist/jquery.js"></script>-->
+
+
+<script src="assets/js/jquery.js" type="text/javascript"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+
+
+
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<!--<script src="bower_components/angular-cookies/angular-cookies.js"></script>-->
+<!--<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+<script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+
+<!--Ibrahims's External Libraries-->
+<script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
+<script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+<script src="bower_components/ngGeolocation/ngGeolocation.js"></script>
+<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<!--<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>-->
+<!--<script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>-->
+
+
+
+<!--Template JS-->
+
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/collapse.js" type="text/javascript"></script>
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/carousel.js" type="text/javascript"></script>
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/transition.js" type="text/javascript"></script>
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js" type="text/javascript"></script>
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js" type="text/javascript"></script>
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/tab.js" type="text/javascript"></script>
+<script src="assets/libraries/bootstrap-sass/javascripts/bootstrap/alert.js" type="text/javascript"></script>
+
+<script src="assets/libraries/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+<script src="assets/libraries/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="assets/libraries/flot/jquery.flot.spline.js" type="text/javascript"></script>
+
+<script src="assets/libraries/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+
+<!--<script src="assets/js/map.js" type="text/javascript"></script>-->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6C8bf6Wh2OxqJ1NymG25PE-zWE0LmwYw&libraries=places"  defer async>
+</script>
+
+
+<!--<script src="http://maps.googleapis.com/maps/api/js?libraries=places,drawing&key=AIzaSyB6C8bf6Wh2OxqJ1NymG25PE-zWE0LmwYw" type="text/javascript"></script>-->
+
+
+<!--<script type="text/javascript" src="assets/libraries/jquery-google-map/infobox.js"></script>-->
+<!--<script type="text/javascript" src="assets/libraries/jquery-google-map/markerclusterer.js"></script>-->
+<!--<script type="text/javascript" src="assets/libraries/jquery-google-map/jquery-google-map.js"></script>-->
+
+<script type="text/javascript" src="assets/libraries/owl.carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="assets/libraries/bootstrap-fileinput/fileinput.min.js"></script>
+
+
+<script src="assets/js/superlist.js" type="text/javascript"></script>
+
+
+
+
+
+<!--Our Scripts-->
+
+<script src="app.js"></script>
+
+<!-- Start Ibrahim Scripts-->
+
+
+<script src="component/event-price.filter.js"></script>
+
+<script src="home/home.controller.js"></script>
+<script src="home/home.factory.js"></script>
+<script src="home/home.service.js"></script>
+
+<script src="dashboard/dashboard.controller.js"></script>
+<script src="dashboard/controllers/ManageEvents.controller.js"></script>
+
+
+<script src="category/category.service.js"></script>
+<script src="category/category.factory.js"></script>
+
+
+<script src="favorite/favorite.service.js"></script>
+<script src="favorite/favorite.factory.js"></script>
+<script src="favorite/favorite.controller.js"></script>
+
+
+<script src="wishlist/wishlist.controller.js"></script>
+<script src="wishlist/wishlist.service.js"></script>
+<script src="wishlist/wishlist.factory.js"></script>
+
+<script src="event/event.controller.js"></script>
+<script src="event/controllers/create-event.controller.js"></script>
+<script src="event/controllers/event-detail.controller.js"></script>
+<script src="event/controllers/nearby-events.controller.js"></script>
+<script src="event/event.factory.js"></script>
+<script src="event/event.service.js"></script>
+<script src="event/service/voiceToText.service.js"></script>
+
+
+<script src="CustomForm/question.controller.js"></script>
+<script src="CustomForm/factories/question.factory.js"></script>
+<script src="CustomForm/services/question.service.js"></script>
+
+<script src="CustomForm/factories/attribut.factory.js"></script>
+<script src="CustomForm/services/attribut.service.js"></script>
+
+
+<!-- End Ibrahim Scripts-->
+
+<!--/*Hakim Scripts*/-->
+<script src="user/user.controller.js"></script>
+<script src="user/user.factory.js"></script>
+<script src="user/user.service.js"></script>
+
+<!-- concatenated flow.js + ng-flow libraries -->
+<script src="bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
+<!-- or include the files separately -->
+<script src="bower_components/flow.js/dist/flow.min.js"></script>
+<script src="bower_components/ng-flow/dist/ng-flow.min.js"></script>
+<script src="bower_components/ng-facebook/ngFacebook.js"></script>
+<script id="facebook-jssdk" src="https://connect.facebook.net/en_US/all.js"></script>
+
+<!--/*End of Hakim Scripts*/-->
+
+
+<!--/*MrFirases Scripts*/-->
+<script src="component/bookingTimerFormatter.filter.js"></script>
+
+<script src="reservation/reservation.controller.js"></script>
+<script src="reservation/reservation.factory.js"></script>
+<script src="reservation/reservation.service.js"></script>
+
+<script src="ticket/ticket.controller.js"></script>
+<script src="ticket/ticket.factory.js"></script>
+<script src="ticket/ticket.service.js"></script>
+<script src="transaction/transaction.controller.js"></script>
+<script src="transaction/transaction.factory.js"></script>
+<script src="transaction/transaction.service.js"></script>
+
+<script src="bank/bank.controller.js"></script>
+<script src="bank/bank.factory.js"></script>
+<script src="bank/bank.service.js"></script>
+<script src="component/bookingTimerFormatter.filter.js"></script>
+
+
+<script src="//monospaced.github.io/bower-qrcode-generator/js/qrcode.js"></script>
+<script src="//monospaced.github.io/bower-qrcode-generator/js/qrcode_UTF8.js"></script>
+<script src="bower_components/angular-qrcode/angular-qrcode.js"></script>
+<script src="assets/reservationStufs/js/qrcode.js" rel="stylesheet"></script>
+
+<!--/*End of mrFirases Scripts*/-->
+
+<!--/*Narimen Scripts*/-->
+
+
+<script src="organization/organization.controller.js"></script>
+<script src="organization/organization.factory.js"></script>
+<script src="organization/organization.service.js"></script>
+
+
+<script src="organizer/organizer.controller.js"></script>
+<script src="organizer/organizer.factory.js"></script>
+<script src="organizer/organizer.service.js"></script>
+
+<!--/*End of Narimen Scripts*/-->
+
+<!--/*Mourad Scripts*/-->
+<script src="comments/comments.controller.js"></script>
+<script src="comments/comments.factory.js"></script>
+<script src="comments/comments.service.js"></script>
+
+<script src="rate/rates.factory.js"></script>
+<script src="rate/rates.service.js"></script>
+
+<script src="referrel/referrel.controller.js"></script>
+<script src="referrel/referrel.factory.js"></script>
+<script src="referrel/referrel.service.js"></script>
+
+<!--/*End of Mourad Scripts*/-->
+<!--Badran Scripts -->
+<script src="discussion/discussion.factory.js"></script>
+<script src="discussion/discussion.service.js"></script>
+<script src="task/task.controller.js"></script>
+<script src="task/task.factory.js"></script>
+<script src="task/task.service.js"></script>
+
+
+<!--End badran Script -->
+</body>
+</html>

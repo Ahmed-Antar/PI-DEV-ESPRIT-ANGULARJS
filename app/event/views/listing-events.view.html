@@ -1,0 +1,217 @@
+<div class="container" ng-init="event.initListing()">
+    <div class="content">
+
+        <!--<div class="document-title">-->
+        <!--<h1>Grid Version</h1>-->
+
+        <!--<ul class="breadcrumb">-->
+        <!--<li><a href="#">Superlist</a></li>-->
+        <!--<li><a href="#">Listing</a></li>-->
+        <!--</ul>-->
+        <!--</div>&lt;!&ndash; /.document-title &ndash;&gt;-->
+
+
+        <div class="filter">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <input ng-model="event.search.$" type="text" placeholder="Keyword" class="form-control">
+                    </div><!-- /.form-group -->
+                </div><!-- /.col-* -->
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <select ng-model="event.search.eventType" class="form-control" title="Select Location">
+                            <option value="">All</option>
+                            <option value="Conference">Conference</option>
+                            <option value="Class_Workshop">Class/Workshop</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Concert_Performance">Concert/Performance</option>
+                            <option value="Dinner_Gala">Dinner/Gala</option>
+                        </select>
+                    </div><!-- /.form-group -->
+                </div><!-- /.col-* -->
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-group">
+                        <select name="category" class="form-control" title="Select Category"
+                                ng-model="event.search.category.categoryName">
+                            <option value="">All</option>
+                            <option ng-repeat="category in event.categories" value="{{category.categoryName}}">
+                                {{category.categoryName}}
+                            </option>
+                        </select>
+                    </div><!-- /.form-group -->
+                </div><!-- /.col-* -->
+            </div><!-- /.row -->
+
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                            <span class="pull-left">{{event.range.min}}</span>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-10">
+                            <div range-slider min="0" max="100" model-min="event.range.min" model-max="event.range.max"
+                                 attach-handle-values="true" disabled="false"></div>
+                        </div>
+
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                            <span class="pull-right">{{event.range.max}}</span>
+
+                        </div>
+
+
+                    </div><!-- /.form-group -->
+                </div>
+            </div><!-- /.col-* -->
+
+            <div class="row" id="info">
+                <div class="col-sm-offset-5 col-md-offset-5 col-sm-12 col-md-12">
+
+                    <button class="btn btn-default" id="start_button" ng-click="event.SearchByVoice(event)">
+                        Search
+                        <img id="start_img" src="../../assets/img/searchImg/mic.gif" alt="Start">
+                    </button>
+
+                    <div id="results">
+                        <span id="final_span" class="final"></span>
+                        <span id="interim_span" class="interim"></span>
+                        <p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="filter-actions">
+                        <a style="cursor: pointer" ng-click="event.getEvents()"><i class="fa fa-close"></i> Reset Filter</a>
+                        <!--<a href="#"><i class="fa fa-save"></i> Save Search</a>-->
+                    </div><!-- /.filter-actions -->
+                </div><!-- /.col-* -->
+
+                <div class="col-sm-4">
+                    <button ng-click="event.filterByTicketPrice()" class="btn btn-primary">Redefine Search Result
+                    </button>
+                </div><!-- /.col-* -->
+            </div><!-- /.row -->
+        </div>
+
+
+        <h2 class="page-title">
+            {{event.events.length}} results matching your query
+
+            <div
+                    class="filter-sort">
+                <div class="form-group">
+                    <select class="form-control" title="Sort by">
+                        <option name="price">Price</option>
+                        <option name="rating">Rating</option>
+                        <option name="title">Title</option>
+                    </select>
+                </div><!-- /.form-group -->
+
+                <div class="form-group">
+                    <select class="form-control" title="Order">
+                        <option name="ASC">Asc</option>
+                        <option name="DESC">Desc</option>
+                    </select>
+                </div><!-- /.form-group -->
+            </div>
+        </h2><!-- /.page-title -->
+
+        <div class="cards-simple-wrapper">
+            <div class="row">
+
+
+                <!--\\\\\ ************ Ng Repeat Start **********////////-->
+                <!--<div infinite-scroll='event.getMoreData()' >-->
+
+                <div class="col-sm-6 col-md-4 col-lg-3"
+                     ng-if="event.start<=$index && event.end>$index"
+                     ng-repeat="e in event.events | filter:event.search:strict | orderBy : 'startTime' ">
+                    <div class="card-simple" style="background-image: url({{e.backgroundImage}})">
+                        <div class="card-simple-background">
+                            <div class="card-simple-content">
+                                <h2><a href="listing-detail.html">{{e.title}}</a></h2>
+                                <div ng-if="e.rateAvg!=0" class="card-simple-rating">
+
+                                    <i ng-repeat="i in event.getNumber(e.rateAvg) track by $index"
+                                       class="fa fa-star"></i>
+
+                                    <i ng-repeat="i in event.getNumber(5-e.rateAvg) track by $index"
+                                       class="fa fa-star-o"></i>
+
+                                    {{e.rateAvg}}
+                                </div><!-- /.card-rating -->
+
+                                <div ng-if="e.rateAvg==0" class="card-simple-rating">
+
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    {{e.rateAvg}}
+                                </div><!-- /.card-rating -->
+
+                                <div class="card-simple-actions">
+                                    <a href="#" class="fa fa-star-o"></a>
+                                    <a ui-sref="event-detail({eventId:e.id})" class="fa fa-search"></a>
+                                    <span ng-click="event.giveHeart(e)" class="fa fa-heart-o"></span>
+                                </div><!-- /.card-simple-actions -->
+                            </div><!-- /.card-simple-content -->
+
+                            <div class="card-simple-label">{{e.category.categoryName}}</div>
+
+                            <div class="card-simple-price">
+
+
+
+
+                                <span ng-repeat="ticket in e.tickets" style="font-size: smaller">
+                                    <span
+                                    >{{ticket.priceTicket}} $
+                                    </span>
+                                    <span>
+                                        {{ticket.typeTicket}} - {{ticket.nbTickets}} tickets <br>
+                                    </span>
+
+                                </span>
+
+                            </div>
+
+                        </div><!-- /.card-simple-background -->
+                    </div><!-- /.card-simple -->
+                </div><!-- /.col-* -->
+
+                <!--</div>-->
+                <!--\\\\\ ************ Ng Repeat End **********////////-->
+
+
+            </div><!-- /.row -->
+        </div><!-- /.cards-simple-wrapper -->
+
+
+        <div class="pager">
+            <ul>
+                <li><a tyle="cursor: pointer;" ng-click="event.prevPage()">Prev</a></li>
+
+                <li ng-class="{active: event.start/event.itemPerPage==$index}"
+                    ng-repeat="i in event.getPageNumber(event.events.length/event.itemPerPage) track by $index">
+                    <a style="cursor: pointer;" ng-click="event.goToPage($index)">{{$index}}</a>
+                </li>
+
+                <li><a tyle="cursor: pointer;" ng-click="event.nextPage()">Next</a></li>
+
+            </ul>
+        </div><!-- /.pagination -->
+
+
+    </div><!-- /.content -->
+</div><!-- /.container -->

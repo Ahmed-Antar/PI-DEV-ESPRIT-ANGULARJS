@@ -1,0 +1,368 @@
+
+<div class="container" ng-init="eventCreate.initCreate()">
+
+    <div class="row">
+
+
+        <div class="col-sm-8 col-lg-9">
+            <div class="content">
+                <div class="page-title">
+                    <h1>{{eventCreate.title}}</h1>
+                </div>
+
+                <div class="background-white p30 mb30">
+                    <h3 class="page-title">Description</h3>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Title" ng-model="eventCreate.event.title">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Listing Description" rows="8"
+                                  ng-model="eventCreate.event.theme"></textarea>
+                    </div><!-- /.form-group -->
+                    <!--<div class="form-group">-->
+                    <!--<input class="form-control" type="date" ng-model="eventCreate.event.startTime">-->
+                    <!--</div>&lt;!&ndash; /.form-group &ndash;&gt;-->
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            Start Time
+                        </div>
+                        <p class="input-group col-md-9">
+                            <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm"
+                                   ng-model="eventCreate.event.startTime"
+                                   is-open="eventCreate.datetimepickerStart.open"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"
+                                        ng-click="eventCreate.openCalendar($event,'datetimepickerStart')"><i
+                                        class="fa fa-calendar"></i></button>
+                            </span>
+                        </p>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            End Time
+                        </div>
+                        <p class="input-group col-md-9">
+                            <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm"
+                                   ng-model="eventCreate.event.endTime" is-open="eventCreate.datetimepickerEnd.open"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"
+                                        ng-click="eventCreate.openCalendar($event,'datetimepickerEnd')"><i
+                                        class="fa fa-calendar"></i></button>
+                            </span>
+                        </p>
+
+                    </div>
+                </div><!-- /.box -->
+
+                <div class="background-white p30 mb30">
+                    <h3 class="page-title">Organization</h3>
+                    <div class="row">
+                        <div class="col-md-12 cold-sm-12">
+                            <div class="form-group">
+                                <select name="category" class="form-control"
+                                        ng-model="eventCreate.event.category.id">
+                                    <option value="">Select your organization</option>
+
+                                    <option ng-repeat="category in eventCreate.categories" value="{{category.id}}">
+                                        {{category.categoryName}}
+                                    </option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="background-white p30 mb30">
+                    <h3 class="page-title">Details</h3>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select name="category" class="form-control"
+                                        ng-model="eventCreate.event.category.id">
+                                    <option value="">Select your event category</option>
+
+                                    <option ng-repeat="category in eventCreate.categories" value="{{category.id}}">
+                                        {{category.categoryName}}
+                                    </option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <select name="type" class="form-control" ng-model="eventCreate.event.eventType">
+                                    <option value="">Select your event type</option>
+                                    <option value="Conference">Conference</option>
+                                    <option value="Class_Workshop">Class/Workshop</option>
+                                    <option value="Meeting">Meeting</option>
+                                    <option value="Concert_Performance">Concert/Performance</option>
+                                    <option value="Dinner_Gala">Dinner/Gala</option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <select name="location" class="form-control" ng-model="eventCreate.event.eventState">
+                                    <option value="">Select your event status</option>
+                                    <option value="PUBLISHED">PUBLISHED</option>
+                                    <option value="UNPUBLISHED">UNPUBLISHED</option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                <input class="form-control" type="text" placeholder="Place Number" ng-model="eventCreate.event.placeNumber">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i style="color: #3B5998"
+                                                                   class="fa fa-facebook-square"></i></span>
+                                <input class="form-control" type="text" placeholder="Facebook"
+                                       ng-model="eventCreate.event.facebookLink">
+                            </div><!-- /.form-group -->
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i style="color: #0097D8"
+                                                                   class="fa fa-twitter-square"></i></span>
+                                <input class="form-control" type="text" placeholder="Twitter"
+                                       ng-model="eventCreate.event.twitterLink">
+                            </div><!-- /.form-group -->
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input class="form-control" type="text" placeholder="Phone"
+                                       ng-model="eventCreate.event.phone">
+                            </div><!-- /.form-group -->
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                <input class="form-control" type="text" placeholder="E-mail"
+                                       ng-model="eventCreate.event.email">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                    </div><!-- /.row -->
+                </div><!-- /.box -->
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="background-white p30 mb30">
+                            <h2 class="page-title">Event Location</h2>
+
+                            <input id="pac-input" class="controls form-control mb30" type="text"
+                                   placeholder="Enter a location">
+
+                            <div id="map-canvas"></div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input class="form-control" type="text" placeholder="Latitude"
+                                               id="input-latitude" ng-model="eventCreate.event.latitude">
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-* -->
+
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input class="form-control" type="text" placeholder="Lontgitude"
+                                               id="input-longitude" ng-model="eventCreate.event.longitude">
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-* -->
+                            </div><!-- /.row -->
+                        </div><!-- /.box -->
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="background-white p30 mb30">
+                            <h2 class="page-title">Gallery</h2>
+                            <input type="file" id="input-file">
+                        </div><!-- /.box -->
+                    </div>
+                </div><!-- /.row -->
+
+
+
+                <div class="center">
+                    <button ng-click="eventCreate.add()" type="submit" class="btn btn-primary btn-xl">Submit Listing
+                    </button>
+                </div><!-- /.center -->
+
+            </div><!-- /.content -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-4 col-lg-3">
+            <div class="sidebar">
+                <div class="widget">
+                    <h2 class="widgettitle">Recent Listings</h2>
+
+
+                    <div class="cards-small">
+                        <div class="card-small">
+                            <div class="card-small-image">
+                                <a href="listing-detail.html">
+                                    <img src="../../assets/img/tmp/product-2.jpg" alt="Tasty Brazil Coffee">
+                                </a>
+                            </div><!-- /.card-small-image -->
+
+                            <div class="card-small-content">
+                                <h3><a href="listing-detail.html">Tasty Brazil Coffee</a></h3>
+                                <h4><a href="listing-detail.html">New York / Village</a></h4>
+
+                                <div class="card-small-price">$180 / person</div>
+                            </div><!-- /.card-small-content -->
+                        </div><!-- /.card-small -->
+                    </div><!-- /.cards-small -->
+
+
+                    <div class="cards-small">
+                        <div class="card-small">
+                            <div class="card-small-image">
+                                <a href="listing-detail.html">
+                                    <img src="../../assets/img/tmp/product-3.jpg" alt="Healthy Breakfast">
+                                </a>
+                            </div><!-- /.card-small-image -->
+
+                            <div class="card-small-content">
+                                <h3><a href="listing-detail.html">Healthy Breakfast</a></h3>
+                                <h4><a href="listing-detail.html">New York / Village</a></h4>
+
+                                <div class="card-small-price">$180 / person</div>
+                            </div><!-- /.card-small-content -->
+                        </div><!-- /.card-small -->
+                    </div><!-- /.cards-small -->
+
+
+                    <div class="cards-small">
+                        <div class="card-small">
+                            <div class="card-small-image">
+                                <a href="listing-detail.html">
+                                    <img src="../../assets/img/tmp/product-4.jpg" alt="Coffee &amp; Newspaper">
+                                </a>
+                            </div><!-- /.card-small-image -->
+
+                            <div class="card-small-content">
+                                <h3><a href="listing-detail.html">Coffee &amp; Newspaper</a></h3>
+                                <h4><a href="listing-detail.html">New York / Village</a></h4>
+
+                                <div class="card-small-price">$180 / person</div>
+                            </div><!-- /.card-small-content -->
+                        </div><!-- /.card-small -->
+                    </div><!-- /.cards-small -->
+
+                </div><!-- /.widget -->
+
+
+                <div class="widget">
+                    <h2 class="widgettitle">Filter</h2>
+
+                    <div class="background-white p20">
+                        <form method="post"
+                              action="http://preview.byaviators.com/template/superlist/listing-submit.html?">
+                            <div class="form-group">
+                                <label for="">Keyword</label>
+                                <input type="text" class="form-control" name="" id="sdf">
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label for="">Category</label>
+
+                                <select class="form-control" title="Select Category">
+                                    <option>Automotive</option>
+                                    <option>Real Estate</option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label for="">Location</label>
+                                <select class="form-control" title="Select Location">
+                                    <option>New York</option>
+                                    <option>San Francisco</option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label for="">Starting Price</label>
+                                <input type="text" class="form-control" name="" id="">
+                            </div><!-- /.form-group -->
+
+                            <button class="btn btn-primary btn-block" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div><!-- /.widget -->
+
+
+                <div class="widget">
+                    <h2 class="widgettitle">Working Hours</h2>
+
+                    <div class="p20 background-white">
+                        <div class="working-hours">
+                            <div class="day clearfix">
+                                <span class="name">Mon</span><span class="hours">07:00 AM - 07:00 PM</span>
+                            </div><!-- /.day -->
+
+                            <div class="day clearfix">
+                                <span class="name">Tue</span><span class="hours">07:00 AM - 07:00 PM</span>
+                            </div><!-- /.day -->
+
+                            <div class="day clearfix">
+                                <span class="name">Wed</span><span class="hours">07:00 AM - 07:00 PM</span>
+                            </div><!-- /.day -->
+
+                            <div class="day clearfix">
+                                <span class="name">Thu</span><span class="hours">07:00 AM - 07:00 PM</span>
+                            </div><!-- /.day -->
+
+                            <div class="day clearfix">
+                                <span class="name">Fri</span><span class="hours">07:00 AM - 07:00 PM</span>
+                            </div><!-- /.day -->
+
+                            <div class="day clearfix">
+                                <span class="name">Sat</span><span class="hours">07:00 AM - 02:00 PM</span>
+                            </div><!-- /.day -->
+
+                            <div class="day clearfix">
+                                <span class="name">Sun</span><span class="hours">Closed</span>
+                            </div><!-- /.day -->
+                        </div>
+                    </div>
+                </div><!-- /.widget -->
+
+
+                <div class="widget">
+                    <h2 class="widgettitle">Categories</h2>
+
+                    <ul class="menu">
+                        <li><a href="#">Automotive</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Nightlife</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Restaurants</a></li>
+                    </ul><!-- /.menu -->
+                </div><!-- /.wifget -->
+
+
+                <div class="widget">
+                    <h2 class="widgettitle">Archives</h2>
+
+                    <ul class="menu">
+                        <li><a href="#">August <strong class="pull-right">12</strong></a></li>
+                        <li><a href="#">July <strong class="pull-right">23</strong></a></li>
+                        <li><a href="#">June <strong class="pull-right">53</strong></a></li>
+                    </ul><!-- /.menu -->
+                </div><!-- /.wifget -->
+
+            </div><!-- /.sidebar -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+</div>
+

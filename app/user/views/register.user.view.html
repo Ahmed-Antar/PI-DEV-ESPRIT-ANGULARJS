@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="page-title">
+            <h1>Register</h1>
+        </div><!-- /.page-title -->
+
+        <form name="register-form" ng-submit="user.register(user.toRegisterUser)">
+            <!--Upload file Box Look DOWN FOR HIDDEN INPUT TO ADD--->
+            <div class="form-group">
+                <div flow-init="{singleFile:true}"
+                     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+
+                    <div class="thumbnail" ng-show="!$flow.files.length">
+                        <img src="https://3.bp.blogspot.com/_Td4in7u_PxM/TOVCDeplPXI/AAAAAAAAAxM/CVBpLN9mbmY/s1600/noprofile.gif"/>
+                    </div>
+                    <div class="thumbnail" ng-show="$flow.files.length">
+                        <img width="200" height="200" flow-img="$flow.files[0]"/>
+                    </div>
+                    <div>
+                        <center>
+                            <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>Select image</span>
+                            <span class="btn btn-info" ng-show="$flow.files.length" flow-btn>Change</span>
+                            <span class="btn btn-danger" ng-show="$flow.files.length"
+                                  ng-click="$flow.cancel()">Remove</span>
+                            <span ng-show="$flow.files.length" class="btn btn-success"
+                                  ng-click="$flow.resume()">Upload</span>
+                        </center>
+
+                    </div>
+
+                </div>
+            </div><!-- /.form-group -->
+            <!--End upload File Box Look DOWN DOWN FOR HIDDEN INPUT TO ADD-->
+
+            <div class="form-group">
+                <label for="login-form-email">E-mail</label>
+                <input required type="email" class="form-control" ng-model="user.toRegisterUser.email"
+                       id="login-form-email">
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+
+                <!--------------------------------HERE NO MORE DOWN Hidden Input to have the server real path---------------------------->
+                <input type="hidden" class="form-control" ng-model="user.toRegisterUser.profileImage"
+                       id="login-form-profile">
+                <!-------------------------------END OF Hidden Input to have the server real path--------------->
+            </div><!-- /.form-group -->
+
+
+            <div class="form-group">
+                <label for="login-form-first-name">First name</label>
+                <input required type="text" class="form-control" ng-model="user.toRegisterUser.firstName"
+                       id="login-form-first-name">
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label for="login-form-last-name">Last name</label>
+                <input required type="text" class="form-control" ng-model="user.toRegisterUser.lastName"
+                       id="login-form-last-name">
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label for="login-form-last-name">Username</label>
+                <input required type="text" class="form-control" ng-model="user.toRegisterUser.username"
+                       id="login-form-user-name">
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label for="login-form-last-name">Phone number</label>
+                <input type="text" class="form-control" ng-model="user.toRegisterUser.numTel"
+                       id="login-form-phone-number">
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label for="login-form-password">Password</label>
+                <input required type="password" class="form-control" name="password"
+                       ng-model="user.toRegisterUser.password" id="login-form-password">
+            </div><!-- /.form-group -->
+
+
+            <div class="form-group">
+                <label for="login-form-password-retype">Retype password</label>
+                <input required name="password-confirm" type="password" class="form-control"
+                       id="login-form-password-retype">
+            </div><!-- /.form-group -->
+
+
+            <button type="submit" class="btn btn-primary pull-right">Register</button>
+        </form>
+    </div><!-- /.col-sm-4 -->
+</div><!-- /.row -->
